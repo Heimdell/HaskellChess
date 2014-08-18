@@ -1,6 +1,7 @@
 module Hchess.Board where
 
 import qualified Data.Map as Map
+import           Data.Map   (Map)
 import Data.Char (chr,ord)
 import Data.List (sort)
 import Data.List.Split (splitOn)
@@ -24,12 +25,12 @@ data Piece =
   Piece Team Character [Location]
   deriving (Show,Eq)
 
-type CapturedPieceMap = Map.Map Team [Piece]
+type CapturedPieceMap = Map Team [Piece]
 
 type Square = Maybe Piece
 
 data Board = 
-  Board (Map.Map Location Square) CapturedPieceMap [Board]
+  Board (Map Location Square) CapturedPieceMap [Board]
   deriving (Show,Eq)
 
 emptyBoard :: Int -> Int -> Board
